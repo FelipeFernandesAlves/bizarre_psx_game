@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://cpdwlpungncrj"]
+
+[ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://player.tscn" id="1_att4b"]
+[ext_resource type="PackedScene" uid="uid://c0atrutvpyy4n" path="res://objects/flashlight.tscn" id="2_xsgnu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6pp2b"]
+sky_top_color = Color(0.172833, 0.172833, 0.172833, 1)
+sky_horizon_color = Color(0.268107, 0.191103, 0.282948, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.162212, 0.029023, 0.246596, 1)
+sun_angle_max = 19.51
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_tam5d"]
+sky_material = SubResource("ProceduralSkyMaterial_6pp2b")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_wlcwn"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_tam5d")
+reflected_light_source = 2
+ssao_enabled = true
+ssao_radius = 4.96
+ssao_intensity = 5.14
+ssao_detail = 1.36
+ssao_horizon = 0.51
+ssao_sharpness = 0.37
+ssao_light_affect = 0.2
+fog_enabled = true
+fog_light_energy = 0.59
+fog_sun_scatter = 0.07
+fog_density = 0.0955
+fog_aerial_perspective = 0.17
+fog_height_density = 6.5641
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnkn0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7mcf"]
+next_pass = SubResource("ShaderMaterial_jnkn0")
+albedo_color = Color(0.402367, 0.703088, 0.367006, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvcqf"]
+albedo_color = Color(0.301854, 0.471806, 0.860697, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymnry"]
+albedo_color = Color(0.712633, 0.289219, 0.222384, 1)
+metallic = 0.8
+roughness = 0.0
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wlcwn")
+
+[node name="player" parent="." instance=ExtResource("1_att4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60327, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.625964, 0.779852, 0, -0.779852, 0.625964, 0, 4, 4.42572)
+light_energy = 0.471
+light_volumetric_fog_energy = 4.702
+light_angular_distance = 5.21
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="floor" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243027, 0, 2.14224)
+use_collision = true
+size = Vector3(27.2857, 0.001, 33.1947)
+material = SubResource("StandardMaterial3D_o7mcf")
+
+[node name="walls" type="Node3D" parent="map"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3871, 2.08042, 2.12532)
+size = Vector3(1, 4.21103, 33.1767)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6358, 2.08368, 2.20786)
+use_collision = true
+size = Vector3(1, 4.22369, 33.1341)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.123451, 2.04618, 18.1882)
+use_collision = true
+size = Vector3(1, 4.27609, 27.984)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="map/walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.123451, 2.04618, -14.1005)
+use_collision = true
+size = Vector3(1, 4.27609, 27.984)
+
+[node name="box1" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68262, 0.472213, -5.14032)
+use_collision = true
+size = Vector3(4.04077, 1.01364, 4.3291)
+material = SubResource("StandardMaterial3D_fvcqf")
+
+[node name="box2" type="CSGBox3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455764, 0.503822, -5.08478)
+use_collision = true
+size = Vector3(4.04077, 1.01364, 4.3291)
+material = SubResource("StandardMaterial3D_ymnry")
+
+[node name="flashlight" parent="." instance=ExtResource("2_xsgnu")]
+transform = Transform3D(1, 0, 0, 0, -0.0871558, -0.996195, 0, 0.996195, -0.0871558, -0.978169, 1.04594, -3.28681)
