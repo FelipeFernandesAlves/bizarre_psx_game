@@ -1,0 +1,19 @@
+{
+	"default": {
+		"random": [
+			"Salve fio",
+			"Tranquilo!",
+			"Pipoquinha com manteiga hmmm"
+		],
+		"dialogs": {
+			"text": [
+				"Na moral tomara que funcione isso aqui",
+				"Concorda ou nem?"
+			],
+			"options": {
+				"Sim": "TODO",
+				"Não": "TODO"
+			}
+		}
+	}
+}

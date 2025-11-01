@@ -22,7 +22,7 @@ func not_in_range():
 	Global.ui_context.reset()
  
 func on_interact():
-	if parent.visible:
+	if parent.visible && !Global.pause:
 		parent.interact()
 
 func connect_parent() -> void:

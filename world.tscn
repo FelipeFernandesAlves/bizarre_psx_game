@@ -58,7 +58,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.57113, 0)
 environment = SubResource("Environment_wlcwn")
 
 [node name="player" parent="." instance=ExtResource("1_att4b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60327, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00877, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.625964, 0.779852, 0, -0.779852, 0.625964, 0, 4, 4.42572)
@@ -108,7 +108,7 @@ size = Vector3(4.04077, 1.01364, 4.3291)
 material = SubResource("StandardMaterial3D_ymnry")
 
 [node name="flashlight" parent="." instance=ExtResource("2_xsgnu")]
-transform = Transform3D(1, 0, 0, 0, -0.0871558, -0.996195, 0, 0.996195, -0.0871558, -0.978169, 1.04594, -3.28681)
+transform = Transform3D(-0.907704, -0.418014, 0.0365715, 0, -0.0871558, -0.996195, 0.41961, -0.90425, 0.0791117, -0.97927, 1.04594, -2.9964)
 
 [node name="npc" parent="." instance=ExtResource("3_nd55t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11584, 2.78828)
