@@ -159,11 +159,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-<<<<<<< Updated upstream
-=======
 script = ExtResource("6_3rfka")
 metadata/_custom_type_script = "uid://xmtvdn88fxpc"
->>>>>>> Stashed changes
 
 [node name="ContextComponent" type="Node" parent="camera_pivot/HUD" node_paths=PackedStringArray("context")]
 script = ExtResource("3_btdrp")
