@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbal7dy0fqtxa"]
+[gd_scene load_steps=14 format=3 uid="uid://bbal7dy0fqtxa"]
 
 [ext_resource type="Script" uid="uid://btgs5uclw83oq" path="res://scripts/player.gd" id="1_xf4s3"]
 [ext_resource type="Shader" uid="uid://ddvibi2f7hyv8" path="res://shader/psx_camera_shader.gdshader" id="2_32gk2"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c0atrutvpyy4n" path="res://objects/flashlight.tscn" id="3_y33cf"]
 [ext_resource type="Texture2D" uid="uid://dpxl6gl3ic0l1" path="res://icons/Keyboard & Mouse/Default/keyboard_e.png" id="4_n1vfi"]
 [ext_resource type="FontFile" uid="uid://dpgyfwitoblt7" path="res://fonts/XTypewriter-Regular.ttf" id="4_rbcv6"]
-[ext_resource type="Script" uid="uid://xmtvdn88fxpc" path="res://objects/quest_handler.gd" id="6_3rfka"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hq2fm"]
 
@@ -159,8 +158,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("6_3rfka")
-metadata/_custom_type_script = "uid://xmtvdn88fxpc"
 
 [node name="ContextComponent" type="Node" parent="camera_pivot/HUD" node_paths=PackedStringArray("context")]
 script = ExtResource("3_btdrp")

@@ -23,7 +23,7 @@ var holdable_objects = {}
 var holding_obj
 var init_obj_pos := Vector3()
 
-const MIN_CAMX = deg_to_rad(-60)
+const MIN_CAMX = deg_to_rad(-40)
 const MAX_CAMX = deg_to_rad(60)
 
 const BOB_FREQ = 2.0
@@ -146,7 +146,6 @@ func _physics_process(delta: float) -> void:
 	
 	if focus:
 		camera_pivot.look_at(focus.global_position)
-		
 	
 	move_and_slide()
 
