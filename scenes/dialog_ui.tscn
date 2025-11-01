@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dm2uidna0mp50"]
 
-[ext_resource type="Script" uid="uid://v1qthjlafaci" path="res://scripts/dialog_ui.gd" id="1_tm6ma"]
+[ext_resource type="Script" uid="uid://v1qthjlafaci" path="res://scripts/dialogue_ui.gd" id="1_tm6ma"]
 [ext_resource type="FontFile" uid="uid://dpgyfwitoblt7" path="res://fonts/XTypewriter-Regular.ttf" id="2_bm2v3"]
 [ext_resource type="Texture2D" uid="uid://cjpif16332w3f" path="res://icons/Keyboard & Mouse/Default/keyboard_space_icon_outline.png" id="3_jp4dj"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="3_sryg3"]
@@ -15,7 +15,7 @@ font_size = 20
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DialogUI" type="Control"]
+[node name="DialogueUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
