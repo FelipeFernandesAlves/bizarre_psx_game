@@ -10,14 +10,7 @@ func _ready() -> void:
 	reset()
 
 func reset():
-	icon.texture = null
 	context.text = ""
-
-func update_icon(image: Texture2D, override: bool):
-	if override:
-		icon.texture = image
-	else:
-		icon.texture = default_icon
 
 func update_text(new_text: String):
 	context.text = new_text

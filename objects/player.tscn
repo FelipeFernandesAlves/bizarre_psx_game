@@ -56,7 +56,7 @@ mesh = SubResource("CapsuleMesh_hq2fm")
 shape = SubResource("ConvexPolygonShape3D_3ydod")
 
 [node name="camera_pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8831716, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47057217, 0)
 
 [node name="camera" type="Camera3D" parent="camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3355968)
@@ -112,26 +112,37 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="camera_pivot/HUD/interact_text"]
+[node name="VBoxContainer" type="VBoxContainer" parent="camera_pivot/HUD/interact_text"]
+layout_mode = 2
+
+[node name="CenterContainer" type="HBoxContainer" parent="camera_pivot/HUD/interact_text/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="stamina_bar_l" type="ProgressBar" parent="camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(50, 2)
+layout_mode = 2
+value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[node name="stamina_bar_r" type="ProgressBar" parent="camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(50, 2)
+layout_mode = 2
+value = 50.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="camera_pivot/HUD/interact_text/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="camera_pivot/HUD/interact_text/HBoxContainer"]
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.1
-texture = ExtResource("4_n1vfi")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="CenterContainer" type="CenterContainer" parent="camera_pivot/HUD/interact_text/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="camera_pivot/HUD/interact_text/VBoxContainer/HBoxContainer"]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="camera_pivot/HUD/interact_text/HBoxContainer/CenterContainer"]
+[node name="Label" type="Label" parent="camera_pivot/HUD/interact_text/VBoxContainer/HBoxContainer/CenterContainer"]
 layout_mode = 2
 text = "Lorem Ipsum"
 label_settings = SubResource("LabelSettings_jll0e")
@@ -139,27 +150,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="ContextComponent" type="Node" parent="camera_pivot/HUD" node_paths=PackedStringArray("icon", "context")]
-script = ExtResource("3_btdrp")
-icon = NodePath("../interact_text/HBoxContainer/TextureRect")
-context = NodePath("../interact_text/HBoxContainer/CenterContainer/Label")
-default_icon = ExtResource("4_n1vfi")
-
-[node name="CenterContainer" type="CenterContainer" parent="camera_pivot/HUD"]
+[node name="quests" type="Control" parent="camera_pivot/HUD"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -86.0
-offset_bottom = -59.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
-[node name="stamina_bar" type="ProgressBar" parent="camera_pivot/HUD/CenterContainer"]
-modulate = Color(0.764706, 0.619608, 0.145098, 1)
-custom_minimum_size = Vector2(500, 20)
-layout_mode = 2
-value = 100.0
-rounded = true
-show_percentage = false
+[node name="ContextComponent" type="Node" parent="camera_pivot/HUD" node_paths=PackedStringArray("icon", "context")]
+script = ExtResource("3_btdrp")
+icon = NodePath("")
+context = NodePath("../interact_text/VBoxContainer/HBoxContainer/CenterContainer/Label")
+default_icon = ExtResource("4_n1vfi")

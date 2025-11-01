@@ -11,7 +11,7 @@ extends CharacterBody3D
 @onready var head: CollisionShape3D = $head
 
 func _ready() -> void:
-	dialog_resource.load_from_json("res://dialog/dialogs.json")
+	dialog_resource.load_from_json("res://dialogue/dialogues.json")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -22,4 +22,4 @@ func interact():
 	if npc_dialogs.is_empty(): return
 	
 	Global.player.focus = head
-	dialog_ui.add_dialog(npc_name, npc_dialogs["dialogs"]["text"], [])
+	dialog_ui.add_dialog(npc_name, npc_dialogs["dialogues"]["text"], [])

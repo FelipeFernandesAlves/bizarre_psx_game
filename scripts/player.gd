@@ -16,13 +16,14 @@ const SENSIBILITY = 0.003
 @onready var holdable_parent: Node3D = $camera_pivot/camera/Node3D
 @onready var flashlight: Area3D = $camera_pivot/camera/Node3D/flashlight
 
-@onready var stamina_bar: ProgressBar = $camera_pivot/HUD/CenterContainer/stamina_bar
+@onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
+@onready var stamina_bar_r: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_r
 
 var holdable_objects = {}
 var holding_obj
 var init_obj_pos := Vector3()
 
-const MIN_CAMX = deg_to_rad(-40)
+const MIN_CAMX = deg_to_rad(-60)
 const MAX_CAMX = deg_to_rad(60)
 
 const BOB_FREQ = 2.0
@@ -59,8 +60,11 @@ func _ready() -> void:
 	init_obj_pos = Vector3.ZERO
 	flashlight.visible = false
 	
-	stamina_bar.max_value = max_stamina
-	stamina_bar.value = stamina
+	stamina_bar_l.max_value = max_stamina
+	stamina_bar_l.value = stamina
+	
+	stamina_bar_r.max_value = max_stamina
+	stamina_bar_r.value = stamina
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !Global.pause && event is InputEventMouseMotion && !focus:
@@ -102,12 +106,15 @@ func _physics_process(delta: float) -> void:
 			curr_stamina_cooldown += delta
 	
 	stamina = clamp(stamina, 0, max_stamina)
-	stamina_bar.value = stamina
+	stamina_bar_l.value = stamina
+	stamina_bar_r.value = stamina
 	
 	if stamina >= max_stamina:
-		stamina_bar.modulate.a = lerp(stamina_bar.modulate.a, 0.0, 2.0 * delta)
+		stamina_bar_l.modulate.a = lerp(stamina_bar_l.modulate.a, 0.0, 2.0 * delta)
+		stamina_bar_r.modulate.a = lerp(stamina_bar_r.modulate.a, 0.0, 2.0 * delta)
 	else:
-		stamina_bar.modulate.a = lerp(stamina_bar.modulate.a, 10.0, 2.0 * delta)
+		stamina_bar_l.modulate.a = lerp(stamina_bar_l.modulate.a, 10.0, 2.0 * delta)
+		stamina_bar_r.modulate.a = lerp(stamina_bar_l.modulate.a, 10.0, 2.0 * delta)
 	
 	if direction && !Global.pause:
 		velocity.x = direction.x * speed
@@ -138,7 +145,6 @@ func _physics_process(delta: float) -> void:
 		looking_obj.emit_signal("interacted")
 	
 	if focus:
-		#var dir := position.direction_to(focus.position)
 		camera_pivot.look_at(focus.global_position)
 		
 	

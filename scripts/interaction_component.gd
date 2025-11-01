@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 func in_range():
 	if parent.visible:
 		Global.ui_context.update_text(content)
-		Global.ui_context.update_icon(new_icon, override_icon)
 
 func not_in_range():
 	Global.ui_context.reset()
