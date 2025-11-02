@@ -10,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ben7md06nc8go" path="res://objects/trash_can.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://bn4d32i3cw2bl" path="res://models/map/Map.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://ew7egx46djq4" path="res://objects/broom.tscn" id="8_gbfbk"]
-[ext_resource type="PackedScene" uid="uid://vcaxvh4lrrga" path="res://objects/wallet.tscn" id="9_wse8f"]
-[ext_resource type="Script" path="res://enemy_scene_controller.gd" id="10_ic0uy"]
-[ext_resource type="PackedScene" path="res://objects/enemy.tscn" id="11_k3n1d"]
+[ext_resource type="PackedScene" path="res://objects/wallet.tscn" id="9_wse8f"]
+[ext_resource type="Script" uid="uid://7fsango0bi0s" path="res://enemy_scene_controller.gd" id="10_ic0uy"]
+[ext_resource type="PackedScene" uid="uid://34jnt07u13hh" path="res://objects/enemy.tscn" id="11_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://hdfw08kkoyun" path="res://models/map/placa luminosa.glb" id="13_2o6r5"]
 
 [sub_resource type="Animation" id="Animation_gbfbk"]
 resource_name = "start"
@@ -224,3 +225,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022216797, 0.7811279, -0.06
 shape = SubResource("BoxShape3D_k3n1d")
 
 [connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]
+[node name="placa luminosa" parent="." instance=ExtResource("13_2o6r5")]
+transform = Transform3D(2.221105, 0, 0, 0, 2.221105, 0, 0, 0, 1, 6.9923463, 1.2809225, -10.208717)
