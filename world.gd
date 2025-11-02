@@ -5,14 +5,20 @@ extends Node3D
 @onready var npc_dest: Node3D = $npc_dest
 @onready var enemy_scene_controller: Node = $EnemySceneController
 
+var can_clean_quest: bool
+
 func _ready() -> void:
 	Global.pause = true
 	Transition.color_rect.modulate.a = 1.0
 	player.quest_handler.quest_completed.connect(advance_quests)
 	cutscene_handler.play("start")
 	
+	$Chase.timeout.connect($EnemySceneController.begin)
+	
 	$interactables/Wallet.picked.connect(func():
-		$"npcs/npc??".queue_free()
+		if ($"npcs/npc??" != null): 
+			$"npcs/npc??".queue_free()
+			can_clean_quest = true
 		)
 
 func handle_quests():
@@ -25,15 +31,24 @@ func advance_quests(_name: String):
 	
 	match Global.current_quest:
 		Global.quests.NPC1:
-			player.quest_handler.add_quest("Expulse as pessoas da boate", 4)
+			player.quest_handler.add_quest("Expulse as pessoas da boate", 2)
+			
 			$npcs/npc01.dialogue_ui.dialogue_end.connect(func():
 				player.quest_handler.progress_quest()
 				advance_quests("npc_01")
+				$npcs/npc01.focused = false
 				$npcs/npc01.go_to(npc_dest.global_position, $npcs/npc01.queue_free)
 				)
+				
 			$npcs/npc01.focused = true
 		Global.quests.NPC2:
 			$npcs/npc01.dialogue_ui.dialogue_end.disconnect($npcs/npc01.dialogue_ui.dialogue_end.get_connections()[0]["callable"])
+		Global.quests.CLEAN:
+			player.quest_handler.add_quest("Ache a vassoura")
+			player.quest_handler.add_quest("Varra a pista")
+			
+			if ($Chase.is_stopped()):
+				$Chase.start(60)
 
 func start():
 	Transition.fade_out(2.3, init_tutorial_dialogue)
@@ -60,5 +75,9 @@ func end_tutorial_dialogue():
 func _physics_process(_delta: float) -> void:
 	handle_quests()
 	#get_tree().call_group("enemy", "update_target_location", player.global_position)
-	if Input.is_action_just_pressed("drop"):
-		enemy_scene_controller.begin()
+
+func _on_npc_dissapear_area_body_entered(body: Node3D) -> void:
+	if (body.is_in_group("player") && can_clean_quest):
+		can_clean_quest = false
+		player.quest_handler.progress_quest()
+		$Tension.play()
