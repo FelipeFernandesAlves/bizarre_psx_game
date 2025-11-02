@@ -10,4 +10,4 @@ func _process(delta: float) -> void:
 		jumpscare.modulate.v -= 0.01
 	
 	if waiting_time <= 0:
-		pass
+		get_tree().change_scene_to_file("res://scenes/Credits.tscn")
