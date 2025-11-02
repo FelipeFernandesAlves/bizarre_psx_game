@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=27 format=3 uid="uid://cpdwlpungncrj"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
 [ext_resource type="Script" uid="uid://bgfqe788rpbmc" path="res://world.gd" id="1_gbfbk"]
@@ -215,16 +215,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.184201, 4.5168705, -9.2504
 script = ExtResource("10_ic0uy")
 
 [node name="Enemy" parent="EnemySceneController" groups=["enemy"] instance=ExtResource("11_k3n1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.573612, 6.747338, -9.994663)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.67888, 5.4809995, -11.376628)
+visible = true
 
 [node name="SoundPlayer" type="AudioStreamPlayer3D" parent="EnemySceneController/Enemy"]
 volume_db = -10.0
 
 [node name="InitialEnemyPosition" type="Node3D" parent="EnemySceneController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.574, 5.537, -11.522)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.646468, 5.3809133, -9.401922)
 
 [node name="Knocking" type="AudioStreamPlayer3D" parent="EnemySceneController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.941862, 4.9001265, -9.859498)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.573786, 5.6397624, -9.859498)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0861273, 3.6083934, -0.21293354)
@@ -276,5 +277,10 @@ transform = Transform3D(-3.0379415e-08, 0, -0.695, 0, 0.695, 0, 0.695, 0, -3.037
 [node name="Porta2" parent="." instance=ExtResource("14_70uel")]
 transform = Transform3D(-3.037941e-08, 0, 0.69499993, 0, 0.69499993, 0, -0.69499993, 0, -3.037941e-08, -13.333143, 2.4147272, 20.437828)
 open_direction = -1
+
+[node name="DJ" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0180783, 5.6540174, 6.490928)
+stream = ExtResource("14_2u3nc")
+volume_db = -25.0
 
 [connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]
