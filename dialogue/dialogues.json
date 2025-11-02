@@ -11,9 +11,16 @@
 				"Concorda ou nem?"
 			],
 			"options": {
-				"Sim": "TODO",
+				"Sim": "teste",
 				"Não": "TODO"
 			}
+		}
+	},
+	"teste": {
+		"dialogues": {
+			"text": [
+				"Deu certo ent"
+			]
 		}
 	}
 }

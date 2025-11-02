@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://xmtvdn88fxpc" path="res://objects/scripts/quest_handler.gd" id="6_3rfka"]
 [ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="7_4vq5b"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="7_i8sra"]
-[ext_resource type="PackedScene" uid="uid://dm2uidna0mp50" path="res://scenes/dialogue_ui.tscn" id="8_4vq5b"]
+[ext_resource type="PackedScene" uid="uid://dm2uidna0mp50" path="res://dialogue/dialogue_ui.tscn" id="8_4vq5b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hq2fm"]
 

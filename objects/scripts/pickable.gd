@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 
 func interact():
 	if (quest != Global.quests.DEFAULT && quest != Global.current_quest):
-		Global.player.dialogue_ui.add_dialogue("", [deny_text], [])
+		Global.player.dialogue_ui.add_dialogue("", [deny_text], {})
 		return
 	
 	if (can_interact && Global.player.can_hold):

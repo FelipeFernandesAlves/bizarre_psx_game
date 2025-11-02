@@ -11,6 +11,6 @@ func load_from_json(file_path : String):
 	else:
 		print("error in parsing dialog from path: %s", file_path)
 
-func get_npc_dialog(npc_id : String) -> Dictionary:
+func get_dialog(npc_id : String) -> Dictionary:
 	if npc_id in dialogs: return dialogs[npc_id]
 	else: return {}

@@ -1,15 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://dm2uidna0mp50"]
 
-[ext_resource type="Script" uid="uid://v1qthjlafaci" path="res://scripts/dialogue_ui.gd" id="1_e6usr"]
-[ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="2_e6usr"]
-[ext_resource type="Texture2D" uid="uid://cjpif16332w3f" path="res://icons/Keyboard & Mouse/Default/keyboard_space_icon_outline.png" id="3_wlc0t"]
-[ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="4_x1ric"]
+[ext_resource type="Script" uid="uid://v1qthjlafaci" path="res://scripts/dialogue_ui.gd" id="1_rrwho"]
+[ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="2_01132"]
+[ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="3_brsfq"]
+[ext_resource type="Texture2D" uid="uid://cjpif16332w3f" path="res://icons/Keyboard & Mouse/Default/keyboard_space_icon_outline.png" id="4_ct5x0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6usr"]
 bg_color = Color(0, 0, 0, 0.5647059)
 
 [sub_resource type="Theme" id="Theme_imsod"]
-default_font = ExtResource("2_e6usr")
+default_font = ExtResource("2_01132")
 
 [node name="DialogueUI" type="Control"]
 layout_mode = 3
@@ -19,23 +19,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_e6usr")
+script = ExtResource("1_rrwho")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-custom_minimum_size = Vector2(700, 250)
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -297.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 4
+
+[node name="options" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 250)
+layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_e6usr")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,19 +55,19 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/Panel/MarginContainer"]
 custom_minimum_size = Vector2(660, 130)
 layout_mode = 2
 
-[node name="text" type="RichTextLabel" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+[node name="text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_imsod")
-theme_override_fonts/normal_font = ExtResource("2_e6usr")
-theme_override_fonts/bold_font = ExtResource("4_x1ric")
-theme_override_fonts/bold_italics_font = ExtResource("2_e6usr")
-theme_override_fonts/italics_font = ExtResource("2_e6usr")
-theme_override_fonts/mono_font = ExtResource("2_e6usr")
+theme_override_fonts/normal_font = ExtResource("2_01132")
+theme_override_fonts/bold_font = ExtResource("3_brsfq")
+theme_override_fonts/bold_italics_font = ExtResource("2_01132")
+theme_override_fonts/italics_font = ExtResource("2_01132")
+theme_override_fonts/mono_font = ExtResource("2_01132")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 27
 theme_override_font_sizes/bold_italics_font_size = 24
@@ -72,7 +80,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 3
 
-[node name="skip_icon" type="TextureRect" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer/text"]
+[node name="skip_icon" type="TextureRect" parent="CanvasLayer/VBoxContainer/Panel/MarginContainer/VBoxContainer/text"]
 custom_minimum_size = Vector2(32, 32)
 layout_direction = 1
 layout_mode = 1
@@ -85,14 +93,6 @@ offset_left = -32.0
 offset_top = -32.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("3_wlc0t")
+texture = ExtResource("4_ct5x0")
 expand_mode = 1
 stretch_mode = 4
-
-[node name="options" type="HBoxContainer" parent="CanvasLayer/Panel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = -30.0
-grow_horizontal = 2
-alignment = 2

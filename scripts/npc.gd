@@ -18,8 +18,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 func interact():
-	var npc_dialogues = dialogue_resource.get_npc_dialog(npc_id)
+	var npc_dialogues := dialogue_resource.get_dialog(npc_id)
 	if npc_dialogues.is_empty(): return
 	
 	Global.player.focus = head
-	dialogue_ui.add_dialogue(npc_name, npc_dialogues["dialogues"]["text"], [])
+	dialogue_ui.add_dialogue(npc_name, npc_dialogues["dialogues"]["text"], npc_dialogues["dialogues"].get("options", {}))
