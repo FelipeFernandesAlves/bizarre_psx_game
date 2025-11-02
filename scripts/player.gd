@@ -15,11 +15,18 @@ const SENSIBILITY = 0.003
 @onready var holdable_parent: Node3D = $camera_pivot/camera/Node3D
 @onready var pickup_point: Node3D = $camera_pivot/camera/Node3D/pickup_point
 
+#UI
 @onready var stamina_bar_l: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_l
 @onready var stamina_bar_r: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/CenterContainer/stamina_bar_r
 @onready var quest_handler: QuestHandler = $camera_pivot/HUD/quests
 @onready var sweep_bar: ProgressBar = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer/SweepBar
 @onready var sweep_box: VBoxContainer = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer
+
+#Sound
+@onready var footsteps: AudioStreamPlayer = $footsteps
+@onready var music: AudioStreamPlayer = $soundtrack
+@onready var scare: AudioStreamPlayer = $jumpscare
+@onready var timer: Timer = $Timer
 
 var holdable_objects = {}
 var holding_obj_parent: Node3D
@@ -169,12 +176,21 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+
+
 func _head_bob(time: float) -> Vector3:
 	var pos = Vector3.ZERO
 	
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ/2) * BOB_AMP
 	
+	if (( (pos.y < 0 and Input.get_vector("left", "right", "up", "down"))  and timer.is_stopped())):
+		footsteps.playing = 1
+		if(Input.is_action_pressed("run")):
+			timer.start(0.5)
+		else:
+			timer.start(1)
+		
 	return pos
 
 func hold_obj(_object_name: String, obj_node: Node3D = null) -> void:

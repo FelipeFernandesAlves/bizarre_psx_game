@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm2uidna0mp50"]
+[gd_scene load_steps=8 format=3 uid="uid://dm2uidna0mp50"]
 
 [ext_resource type="Script" uid="uid://v1qthjlafaci" path="res://scripts/dialogue_ui.gd" id="1_e6usr"]
 [ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="2_e6usr"]
 [ext_resource type="Texture2D" uid="uid://cjpif16332w3f" path="res://icons/Keyboard & Mouse/Default/keyboard_space_icon_outline.png" id="3_wlc0t"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="4_x1ric"]
+[ext_resource type="Script" uid="uid://7fusho6r0us6" path="res://scripts/button.gd" id="5_imsod"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6usr"]
 bg_color = Color(0, 0, 0, 0.5647059)
@@ -91,8 +92,17 @@ stretch_mode = 4
 
 [node name="options" type="HBoxContainer" parent="CanvasLayer/Panel"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
+anchor_top = -0.24192
 anchor_right = 1.0
-offset_top = -30.0
+anchor_bottom = -0.24192
+offset_top = 60.48
+offset_bottom = 68.479996
 grow_horizontal = 2
+scale = Vector2(1, -7.56)
 alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/options"]
+layout_mode = 2
+script = ExtResource("5_imsod")

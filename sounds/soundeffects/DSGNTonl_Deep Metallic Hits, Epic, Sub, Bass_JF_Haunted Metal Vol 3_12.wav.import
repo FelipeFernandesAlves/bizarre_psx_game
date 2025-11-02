@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5gyiwm7yhtej"
+path="res://.godot/imported/DSGNTonl_Deep Metallic Hits, Epic, Sub, Bass_JF_Haunted Metal Vol 3_12.wav-843ea55b4aeef53a241996b502567790.sample"
+
+[deps]
+
+source_file="res://sounds/soundeffects/DSGNTonl_Deep Metallic Hits, Epic, Sub, Bass_JF_Haunted Metal Vol 3_12.wav"
+dest_files=["res://.godot/imported/DSGNTonl_Deep Metallic Hits, Epic, Sub, Bass_JF_Haunted Metal Vol 3_12.wav-843ea55b4aeef53a241996b502567790.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

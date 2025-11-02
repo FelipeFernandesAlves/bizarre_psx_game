@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbal7dy0fqtxa"]
+[gd_scene load_steps=18 format=3 uid="uid://bbal7dy0fqtxa"]
 
 [ext_resource type="Script" uid="uid://btgs5uclw83oq" path="res://scripts/player.gd" id="1_xf4s3"]
 [ext_resource type="Shader" uid="uid://ddvibi2f7hyv8" path="res://shader/psx_camera_shader.gdshader" id="2_32gk2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://xmtvdn88fxpc" path="res://objects/scripts/quest_handler.gd" id="6_3rfka"]
 [ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="7_4vq5b"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="7_i8sra"]
+[ext_resource type="AudioStream" uid="uid://wifdkldenklf" path="res://sounds/footsteps/Ejimas1.ogg" id="10_4vq5b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hq2fm"]
 
@@ -216,3 +217,14 @@ autowrap_mode = 0
 script = ExtResource("3_btdrp")
 context = NodePath("../interact_text/VBoxContainer/HBoxContainer/CenterContainer/Label")
 default_icon = ExtResource("4_n1vfi")
+
+[node name="footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4vq5b")
+playback_type = 1
+
+[node name="soundtrack" type="AudioStreamPlayer" parent="."]
+
+[node name="jumpscare" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

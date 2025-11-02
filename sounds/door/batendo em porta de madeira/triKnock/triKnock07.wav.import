@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://nt1xpggjsoj8"
+path="res://.godot/imported/triKnock07.wav-cadbc152bc51d769b2d2cb94f9a60a4a.sample"
+
+[deps]
+
+source_file="res://sounds/door/batendo em porta de madeira/triKnock/triKnock07.wav"
+dest_files=["res://.godot/imported/triKnock07.wav-cadbc152bc51d769b2d2cb94f9a60a4a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

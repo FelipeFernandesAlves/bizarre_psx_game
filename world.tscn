@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brx3au423cy5e" path="res://objects/trash.tscn" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://ben7md06nc8go" path="res://objects/trash_can.tscn" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://b6h75tr38u1yf" path="res://teste_base.tscn" id="7_pkg7o"]
-[ext_resource type="PackedScene" uid="uid://ew7egx46djq4" path="res://objects/broom.tscn" id="8_gbfbk"]
+[ext_resource type="PackedScene" path="res://objects/broom.tscn" id="8_gbfbk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6pp2b"]
 sky_top_color = Color(0.172833, 0.172833, 0.172833, 1)
