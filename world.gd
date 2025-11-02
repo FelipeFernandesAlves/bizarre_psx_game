@@ -2,13 +2,33 @@ extends Node3D
 
 @onready var cutscene_handler: AnimationPlayer = $CutsceneHandler
 @onready var player: Player = $player
+@onready var npc_dest: Node3D = $npc_dest
 
 func _ready() -> void:
-	Global.player.quest_handler.add_quest("Jogue o lixo fora", 5)
-	Global.current_quest = Global.quests.TRASH
-	#Global.pause = true
-	Transition.color_rect.modulate.a = 0.0
-	#cutscene_handler.play("start")
+	Global.pause = true
+	Transition.color_rect.modulate.a = 1.0
+	player.quest_handler.quest_completed.connect(advance_quests)
+	cutscene_handler.play("start")
+
+func handle_quests():
+	match Global.current_quest:
+		Global.quests.NPC1:
+			pass
+
+func advance_quests(_name: String):
+	Global.current_quest = (Global.current_quest + 1) as Global.quests
+	
+	match Global.current_quest:
+		Global.quests.NPC1:
+			player.quest_handler.add_quest("Expulse as pessoas da boate", 4)
+			$npcs/npc01.dialogue_ui.dialogue_end.connect(func():
+				player.quest_handler.progress_quest()
+				advance_quests("npc_01")
+				$npcs/npc01.go_to(npc_dest.global_position, $npcs/npc01.queue_free)
+				)
+			$npcs/npc01.focused = true
+		Global.quests.NPC2:
+			$npcs/npc01.dialogue_ui.dialogue_end.disconnect($npcs/npc01.dialogue_ui.dialogue_end.get_connections()[0]["callable"])
 
 func start():
 	Transition.fade_out(2.3, init_tutorial_dialogue)
@@ -32,6 +52,7 @@ func end_tutorial_dialogue():
 
 	Global.player.dialogue_ui.dialogue_end.disconnect(end_tutorial_dialogue)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	handle_quests()
 	#get_tree().call_group("enemy", "update_target_location", player.global_position)
 	pass

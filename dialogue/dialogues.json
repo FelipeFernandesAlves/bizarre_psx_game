@@ -52,5 +52,47 @@
 				["Você", "... Fechou."]
 			]
 		}
+	},
+	
+	"npc1": {
+		"ramdom": [
+			[["Homem Estranho", "A dança, a dança não pode parar"]],
+			[
+				["Homem Estranho", "Se eu parar, se eu parar.."],
+				["Homem Estranho", "Não posso parar"]
+			]
+		],
+		"dialogues": {
+			"text": [
+				["Você", "..Cara, preciso que você vá embora."],
+				["Homem Estranho", "Como assim? O que tá acontecendo?"],
+			],
+			"options": {
+				"Eu preciso fechar o lugar": "npc1_02",
+				"Só vai embora logo": "npc1_03"
+			}
+		}
+	},
+	"npc1_02": {
+		"dialogues": {
+			"text": [
+				["Homem Estranho", "Han? Já?"],
+				["Homem Estranho", "Eu preciso continuar dançando, em algum outro lugar"],
+				["Homem Estranho", "Você deveria começar também, o quanto antes"],
+				["Você", "Tudo bem senhor, vou ver o que posso fazer sobre isso."]
+			],
+		}
+	},
+	"npc1_03": {
+		"dialogues": {
+			"text": [
+				["Homem Estranho", "Ei ei ei! Eu já tô indo, já tô indo"],
+				["Homem Estranho", "O outro zelador era mais educado"],
+				["Homem Estranho", "Mas ainda assim vocês dois insistem no mesmo erro"],
+				["Homem Estranho", "Eu começaria a dançar se fosse você..."],
+				["Você", "Têm gente que precisa trabalhar"],
+				["Você", "Pra ganhar mal demais pra quantidade de maluco que tem que aturar"]
+			]
+		}
 	}
 }

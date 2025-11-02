@@ -1,16 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm2uidna0mp50"]
+[gd_scene load_steps=8 format=4 uid="uid://dm2uidna0mp50"]
 
 [ext_resource type="Script" uid="uid://v1qthjlafaci" path="res://scripts/dialogue_ui.gd" id="1_rrwho"]
 [ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="2_01132"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="3_brsfq"]
 [ext_resource type="Texture2D" uid="uid://cjpif16332w3f" path="res://icons/Keyboard & Mouse/Default/keyboard_space_icon_outline.png" id="4_ct5x0"]
-[ext_resource type="AudioStream" uid="uid://nu4g0l6vsfn8" path="res://sounds/dialogue.wav" id="5_rrwho"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6usr"]
 bg_color = Color(0, 0, 0, 0.5647059)
 
 [sub_resource type="Theme" id="Theme_imsod"]
 default_font = ExtResource("2_01132")
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_2m2cu"]
+data = PackedByteArray("cW9hZgAAEUMBAKxEEUMHAAAAAAAAAAAAAAAAAOAAQAAA0RY1ZUU9Ywlzl3xnz311DXXPXDfXafQQU0U4040UUxhATjhARRjQFFGOOACNBBMddc0EY49YYxhRjjhQT111GPWOFOOFPWMY98498E4QihIRQKBQAACIEJwgAIgBa74irLGnLLGnLEIIKYKaaaM8P7xqxqxppponLLvvmmimCBljhRl13zjlGFOOOXWXfOcc9499dd98Zx113j33xn13JEEFNNNFWWMwQVZZ4U00wSln3jVlTn1TJWNNNNOWWNEVdd895c998Bn3wn11313zGXfPffCffZggQQCUHvvHPiu+++u8u+u8Qgqxppyy6ho7LLvHLGnLLj+qcacqKaIKL7wlNFEFNOMZc998J98J9yljTRTRVjRBJNNONNONNOMk5Y05d99ZdzRDlljBVjTVPdfPdOWVNWMl9VZZU1d5dyl331TjTTl3LWWNONONOXctY0405Y405SjjTjTjSaIIMApq7xppyywvvrvvvrvrvmIKscqaaaaIP74q76y776w2mnLGmnLGCCJTRTRTTljRHePfCffPfPck400Vd9ZZdy31l3jl331lKXfWWXfffXc0005U5ZZZ9UX3zDTTTBDRI2ffdXffeXct9Z859Y05dy1l31ljnxDlLffNXfWNXVNAUwCCPgA0QTKcc+sssu8uSxpppohyyxpWiHLGnvKiCj+u+cu+acu+Ooq776yy7y4/qmmCEwA5YyTjRVjl3jjTKWOXffXeOWMk405d981d9Snzn13jnzn1LffffOfffXdAQVZZ94001T1TX33lTTVjJfOfffXeXfMld9Zd99d45S33zTnxVl31JFXfVONNPeMo04040UCDvjaac+su8u++Oz5z767y765WnLvvGnLLGj+acae8csacLy6y7767774qmU0405d9ZSjll31RV331KWNOWXVOWOcs581dU5d45S3jl3313l31KfNXfffWfXdAQQ5VZ8w5QS3Fn3F3n3n1KfWfWWXffWUt99Y0405d9Sl31ljljTjRJXfWXeFWOWMpZd81Y400iDMu8saacsauP76yy77767xSCrHLvGmmij6escu+u++uPxoqxpyoqxomrvrPGFYQVSjljTljljTjHfJfPfGfPfcpY5Zd9UVd9y1ljTTjV31lLeNOXeOWWNNAQVYwVYw5V0zVRDTVlRJTIXeWfeXeWNMk5Y05d9805Sjljl31l31lLfVFXfVFXfctZY0405Y5YyjTRTlhEuu8Nyy7xyyy7747LLGnLLvvnFcscqaKsacqI77575y7754unvrLvvrLHC+aYLjTRV31JEFNNOWNOWMpY0405Y5Y0yjTl33zV31lKXffWWNOWWMp81d9U5Zd5UTBTBTBVlVjLefdWefdWVUpVZU01Y1Y0yTljTljljRTJFNONONONOMkU040U0405ShBTRBTTljlKWEFNONNS64vvrvvvnPrvi+u++u+u++uQgpy6pyopyw7LvmnGmimii++cu8e8cu+Ky775kglNNEVdZd99d9d9xxn1313z3l1HfXffPffPfccJ99dd9899yTljTTljTTlKWNNOfWWffc015d4w0w01S33VlTVTVjDKVOWWWNNFWMpY05Y5YQU0R3z3z3z3xl3HGXfPfXWOXcc998Zd85dZSTRCe+au+suL767775z5z5CCmAHLLHLqjsusscacaKaK5yx76xyxy4vrLvrLvvrLB8r33zl1l31HffOXfXfXfUd98VdZd989xl131l31331HffOfPffXfUd9859d99d5zTBTBTBDn3TLVWeVMWVVNUd19zd591d9xl3l33131l1GXffPePfFOMY4449898Z8BTlzl3xTjjjGOOOOOOPfPckAnLrLLrLLi+u8cu++acuRoggppy76ponLrvjLHvnLiscusuqKIKcHk575757574eg45Y5Y5Y5Rjljljnzl31GXWfOWXfXeMZd9d99d9Y0xl3133133zTGXffXfffXeUk1Y1ZZU159STVTVTDTDTDHdfeefeWfeUZZ9Z9ZZZd4xll31l33zllHWXfNOXWXfMU980UUUUUURRRRRl1jjl1IAEJy76yxywmnGnLHLHLHDaIKacsaesqJy76xopopywfnrvhPnvjPhCcucu+e+seH6ouWNONFNEU440440UU4RATRlhTl1RlGNFNFONOOXcdd9Y040404xTjRV1T3jllJNNNNNNNNWco01ZUSQQ0wx1VDVTFlDTDDd/e/feeffcU00QU0U0U0RRAABRRATjQEAABONABONAMttNNMtttNBTjjQQOsMucG66x75oopxwXLrHGinvnLhuC+ssacssaFpoggppoggoWmiCAQCAQCAuM+cYLnnVA")
+format = 3
 
 [node name="DialogueUI" type="Control"]
 layout_mode = 3
@@ -99,4 +102,6 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_rrwho")
+stream = SubResource("AudioStreamWAV_2m2cu")
+volume_db = -10.0
+pitch_scale = 1.2

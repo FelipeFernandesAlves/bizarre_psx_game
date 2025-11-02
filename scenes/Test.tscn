@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bs2paomklog5m"]
+
+[ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_wen4y"]
+[ext_resource type="PackedScene" uid="uid://b5ok4uv7svrlx" path="res://objects/npc.tscn" id="2_w8un3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w8un3"]
+
+[sub_resource type="Sky" id="Sky_0d6la"]
+sky_material = SubResource("ProceduralSkyMaterial_w8un3")
+
+[sub_resource type="Environment" id="Environment_w8un3"]
+background_mode = 2
+sky = SubResource("Sky_0d6la")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w8un3"]
+size = Vector2(20, 20)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_wen4y"]
+vertices = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, -10)
+polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(1, 3, 2)]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0d6la"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[node name="Test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w8un3")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 31
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_w8un3")
+skeleton = NodePath("../..")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Floor/Mesh"]
+navigation_mesh = SubResource("NavigationMesh_wen4y")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("ConcavePolygonShape3D_0d6la")
+
+[node name="player" parent="." instance=ExtResource("1_wen4y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49785233, 0.98335195, -0.6776368)
+
+[node name="npc" parent="." instance=ExtResource("2_w8un3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3783245, 1, -0.3074832)
+npc_id = "npc1"
+npc_name = "Calvin"
+quest = 2
+
+[node name="ExitPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.043883, 0, -7.4048653)

@@ -72,6 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3355968)
 [node name="raycast" type="RayCast3D" parent="camera_pivot/camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0555006, 0.0216231, 0.205075)
 target_position = Vector3(0, 0, -2)
+collision_mask = 15
 collide_with_areas = true
 debug_shape_thickness = 5
 
@@ -158,6 +159,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="camera_pivot/HUD/interact_text/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer"]

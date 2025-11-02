@@ -9,6 +9,10 @@ var pause := false
 enum quests {
 	DEFAULT,
 	TRASH,
+	NPC1,
+	NPC2,
+	NPC3,
+	NPC4,
 	PERSON,
 	CLEAN
 }

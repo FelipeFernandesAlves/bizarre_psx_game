@@ -17,7 +17,6 @@ func _process(_delta: float) -> void:
 			global_position = lerp(global_position, follow.global_position, 0.2)
 		else:
 			global_position = follow.global_position
-		
 
 func interact():
 	if (quest != Global.quests.DEFAULT && quest != Global.current_quest):

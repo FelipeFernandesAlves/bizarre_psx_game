@@ -18,10 +18,6 @@ func _process(_delta: float) -> void:
 		var tween = create_tween()
 		tween.tween_property(self, "modulate:a", 1.0, 0.5)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if (event.is_action_pressed("debug")):
-		add_quest("Jogue o lixo fora", 1)
-
 func add_quest(new: String, goal: int = -1):
 	objectives.push_back(new)
 	progresses.push_back(0)

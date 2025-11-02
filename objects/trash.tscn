@@ -11,7 +11,7 @@ height = 0.4779663
 radius = 0.33740234
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fb3bb"]
-radius = 0.4
+radius = 0.5037279
 
 [node name="Trash" type="RigidBody3D"]
 collision_layer = 4
@@ -35,10 +35,11 @@ content = "Trash"
 metadata/_custom_type_script = "uid://dn2eaprkg88q4"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickableArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016219974, 0.2544705, -0.09339246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027158126, 0.2544705, -0.09339246)
 shape = SubResource("SphereShape3D_fb3bb")
 
 [node name="saco_de_lixo" parent="." instance=ExtResource("4_fb3bb")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_k5gxu")
+volume_db = -10.0

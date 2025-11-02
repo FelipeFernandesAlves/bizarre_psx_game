@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export_category("Properties")
 @export var npc_id := "default"
 @export var npc_name := "Fulano"
+@export var quest : Global.quests = Global.quests.DEFAULT
 
 @export_category("Dialogue")
 @export var dialogue_resource : Dialogue
@@ -14,6 +15,7 @@ extends CharacterBody3D
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 var current_on_target_reached = null
 var SPEED = 6.0
+var focused: bool
 
 func _ready() -> void:
 	dialogue_resource.load_from_json("res://dialogue/dialogues.json")
@@ -37,7 +39,16 @@ func interact():
 	if npc_dialogues.is_empty(): return
 	
 	Global.player.focus = head
-	dialogue_ui.add_dialogue(npc_dialogues["dialogues"])
+	
+	if (Global.current_quest != quest):
+		var t = npc_dialogues.get("ramdom", [])
+		if (t.size() > 0):
+			var d = {
+				"text": t[randi_range(0, t.size()-1)]
+			}
+			dialogue_ui.add_dialogue(d)
+	else:
+		dialogue_ui.add_dialogue(npc_dialogues["dialogues"])
 	
 func go_to(target_location, _on_target_reached):
 	if Global.pause:
@@ -45,7 +56,6 @@ func go_to(target_location, _on_target_reached):
 	
 	current_on_target_reached = _on_target_reached
 	nav_agent.target_position = target_location
-
 
 func _on_navigation_agent_3d_target_reached() -> void:
 	if current_on_target_reached == null:
