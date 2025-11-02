@@ -18,9 +18,7 @@ var SPEED = 6.0
 func _ready() -> void:
 	dialogue_resource.load_from_json("res://dialogue/dialogues.json")
 
-func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+func _physics_process(delta: float) -> void:                                     
 	if not nav_agent.is_navigation_finished():
 		var current_location = global_transform.origin
 		var next_location = nav_agent.get_next_path_position()
@@ -39,7 +37,7 @@ func interact():
 	if npc_dialogues.is_empty(): return
 	
 	Global.player.focus = head
-	dialogue_ui.add_dialogue(npc_name, npc_dialogues["dialogues"]["text"], [])
+	dialogue_ui.add_dialogue(npc_dialogues["dialogues"])
 	
 func go_to(target_location, _on_target_reached):
 	if Global.pause:

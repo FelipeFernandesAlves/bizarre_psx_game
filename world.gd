@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var cutscene_handler: AnimationPlayer = $CutsceneHandler
+@onready var player: Player = $player
 
 func _ready() -> void:
 	Global.player.quest_handler.add_quest("Jogue o lixo fora", 5)
@@ -30,4 +31,7 @@ func end_tutorial_dialogue():
 		)
 
 	Global.player.dialogue_ui.dialogue_end.disconnect(end_tutorial_dialogue)
-	
+
+func _physics_process(delta: float) -> void:
+	#get_tree().call_group("enemy", "update_target_location", player.global_position)
+	pass
