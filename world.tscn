@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ew7egx46djq4" path="res://objects/broom.tscn" id="8_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://vcaxvh4lrrga" path="res://objects/wallet.tscn" id="9_wse8f"]
 [ext_resource type="Script" uid="uid://7fsango0bi0s" path="res://enemy_scene_controller.gd" id="10_ic0uy"]
-[ext_resource type="PackedScene" uid="uid://cfj68vtjpc83x" path="res://objects/enemy.tscn" id="11_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://cjcfqkhnhm0o3" path="res://objects/enemy.tscn" id="11_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://hdfw08kkoyun" path="res://models/map/placa luminosa.glb" id="13_2o6r5"]
 [ext_resource type="AudioStream" uid="uid://de5mpuv0oq5i0" path="res://sounds/musica_balada.mp3" id="14_2u3nc"]
 [ext_resource type="PackedScene" uid="uid://wywiruyt506p" path="res://objects/porta.tscn" id="14_70uel"]
@@ -216,7 +216,6 @@ script = ExtResource("10_ic0uy")
 
 [node name="Enemy" parent="EnemySceneController" groups=["enemy"] instance=ExtResource("11_k3n1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.67888, 5.4809995, -11.376628)
-visible = true
 
 [node name="SoundPlayer" type="AudioStreamPlayer3D" parent="EnemySceneController/Enemy"]
 volume_db = -10.0

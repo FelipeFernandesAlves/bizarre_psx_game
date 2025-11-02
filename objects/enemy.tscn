@@ -1,16 +1,13 @@
-<<<<<<< HEAD
-[gd_scene load_steps=4 format=3 uid="uid://34jnt07u13hh"]
-=======
-[gd_scene load_steps=5 format=3 uid="uid://cfj68vtjpc83x"]
->>>>>>> 6a434a2077f02cee65e7a550763c36be5557a408
+[gd_scene load_steps=5 format=3 uid="uid://cjcfqkhnhm0o3"]
 
 [ext_resource type="Script" uid="uid://cy78t7yxycl7h" path="res://objects/enemy.gd" id="1_882u1"]
-[ext_resource type="PackedScene" uid="uid://dfrgjsxgjp85h" path="res://models/characters/ghost.tscn" id="2_7jlpp"]
+[ext_resource type="PackedScene" uid="uid://dupx2ul10q18n" path="res://models/characters/ghost.tscn" id="2_7jlpp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_882u1"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7jlpp"]
+
 [node name="Enemy" type="CharacterBody3D"]
-visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_882u1")
@@ -22,5 +19,9 @@ shape = SubResource("CapsuleShape3D_882u1")
 
 [node name="ghost" parent="." instance=ExtResource("2_7jlpp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.076899, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_7jlpp")
 
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]

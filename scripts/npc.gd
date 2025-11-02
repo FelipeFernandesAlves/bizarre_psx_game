@@ -16,12 +16,9 @@ extends CharacterBody3D
 
 @onready var head: CollisionShape3D = $head
 @onready var coll_outline: MeshInstance3D = $coll_outline
-<<<<<<< HEAD
 @onready var npc_model:Node3D = $model.get_node(NodePath(name))
-=======
 
 @onready var door_exit: AudioStreamPlayer3D = $door_exit
->>>>>>> 6a434a2077f02cee65e7a550763c36be5557a408
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 var current_on_target_reached = null
 var SPEED = 6.0
