@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=26 format=3 uid="uid://cpdwlpungncrj"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
 [ext_resource type="Script" uid="uid://bgfqe788rpbmc" path="res://world.gd" id="1_gbfbk"]
@@ -257,7 +257,6 @@ shape = SubResource("BoxShape3D_hiqwa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.80154, 3.2486658, 24.035912)
 shape = SubResource("BoxShape3D_2u3nc")
 
-[connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]
 [node name="Porta Armazém" parent="." instance=ExtResource("14_70uel")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -16.354036, 1.1700052, 1.2390449)
 
@@ -276,3 +275,5 @@ transform = Transform3D(-3.0379415e-08, 0, -0.695, 0, 0.695, 0, 0.695, 0, -3.037
 [node name="Porta2" parent="." instance=ExtResource("14_70uel")]
 transform = Transform3D(-3.037941e-08, 0, 0.69499993, 0, 0.69499993, 0, -0.69499993, 0, -3.037941e-08, -15.423797, -1.3445168, 20.654854)
 open_direction = -1
+
+[connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]

@@ -17,6 +17,7 @@ extends CharacterBody3D
 @onready var head: CollisionShape3D = $head
 @onready var coll_outline: MeshInstance3D = $coll_outline
 
+@onready var door_exit: AudioStreamPlayer3D = $door_exit
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 var current_on_target_reached = null
 var SPEED = 6.0

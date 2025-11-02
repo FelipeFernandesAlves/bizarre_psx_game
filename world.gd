@@ -37,7 +37,10 @@ func advance_quests(_name: String):
 				player.quest_handler.progress_quest()
 				advance_quests("npc_01")
 				$npcs/npc01.focused = false
-				$npcs/npc01.go_to(npc_dest.global_position, $npcs/npc01.queue_free)
+				$npcs/npc01.go_to(npc_dest.global_position, func(): 
+					$npcs/npc01.door_exit.play()
+					$npcs/npc01.queue_free()
+					)
 				)
 				
 			$npcs/npc01.focused = true

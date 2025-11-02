@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5ok4uv7svrlx"]
+[gd_scene load_steps=14 format=3 uid="uid://b5ok4uv7svrlx"]
 
 [ext_resource type="Script" uid="uid://3coot3o48nc1" path="res://scripts/npc.gd" id="1_0dpvs"]
 [ext_resource type="Script" uid="uid://dn2eaprkg88q4" path="res://scripts/interaction_component.gd" id="2_3kdkt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bxccjnpqwf386" path="res://shader/outline.gdshader" id="3_1xqyt"]
 [ext_resource type="Texture2D" uid="uid://dpxl6gl3ic0l1" path="res://icons/Keyboard & Mouse/Default/keyboard_e.png" id="3_dknca"]
 [ext_resource type="PackedScene" uid="uid://dm2uidna0mp50" path="res://dialogue/dialogue_ui.tscn" id="5_07jg7"]
+[ext_resource type="AudioStream" uid="uid://c0t11wokajwyy" path="res://sounds/door.mp3" id="7_x5xkw"]
 
 [sub_resource type="Resource" id="Resource_u3smf"]
 script = ExtResource("2_y626a")
@@ -63,5 +64,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0134917, 0.680057, -0.03873
 shape = SubResource("CylinderShape3D_ud15g")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="door_exit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_x5xkw")
 
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
