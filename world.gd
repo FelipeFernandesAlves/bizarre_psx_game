@@ -19,6 +19,7 @@ func _ready() -> void:
 		if ($"npcs/npc??" != null): 
 			$"npcs/npc??".queue_free()
 			can_clean_quest = true
+			$DJ.stop()
 		)
 
 func handle_quests():
@@ -37,7 +38,10 @@ func advance_quests(_name: String):
 				player.quest_handler.progress_quest()
 				advance_quests("npc_01")
 				$npcs/npc01.focused = false
-				$npcs/npc01.go_to(npc_dest.global_position, $npcs/npc01.queue_free)
+				$npcs/npc01.go_to(npc_dest.global_position, func(): 
+					$npcs/npc01.door_exit.play()
+					$npcs/npc01.queue_free()
+					)
 				)
 				
 			$npcs/npc01.focused = true
@@ -65,6 +69,7 @@ func end_tutorial_dialogue():
 		Global.player.quest_handler.add_quest("Jogue o lixo fora", 5)
 		Global.current_quest = Global.quests.TRASH
 		await get_tree().create_timer(0.7).timeout
+		$DJ.play()
 		Transition.fade_out(2.3, func(): 
 			Global.pause = false
 			)
@@ -74,7 +79,6 @@ func end_tutorial_dialogue():
 
 func _physics_process(_delta: float) -> void:
 	handle_quests()
-	#get_tree().call_group("enemy", "update_target_location", player.global_position)
 
 func _on_npc_dissapear_area_body_entered(body: Node3D) -> void:
 	if (body.is_in_group("player") && can_clean_quest):
