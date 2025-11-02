@@ -79,8 +79,6 @@ func end_tutorial_dialogue():
 
 func _physics_process(_delta: float) -> void:
 	handle_quests()
-	if Input.is_action_just_pressed("drop"):
-		$EnemySceneController.begin()
 
 func _on_npc_dissapear_area_body_entered(body: Node3D) -> void:
 	if (body.is_in_group("player") && can_clean_quest):
