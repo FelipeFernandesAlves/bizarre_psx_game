@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://7fsango0bi0s" path="res://enemy_scene_controller.gd" id="10_ic0uy"]
 [ext_resource type="PackedScene" uid="uid://cfj68vtjpc83x" path="res://objects/enemy.tscn" id="11_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://hdfw08kkoyun" path="res://models/map/placa luminosa.glb" id="13_2o6r5"]
+[ext_resource type="PackedScene" uid="uid://wywiruyt506p" path="res://objects/porta.tscn" id="14_70uel"]
 
 [sub_resource type="Animation" id="Animation_gbfbk"]
 resource_name = "start"
@@ -257,3 +258,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.80154, 3.2486658, 24.0359
 shape = SubResource("BoxShape3D_2u3nc")
 
 [connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]
+[node name="Porta Armazém" parent="." instance=ExtResource("14_70uel")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -16.354036, 1.1700052, 1.2390449)
+
+[node name="Porta Boate" parent="." instance=ExtResource("14_70uel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.634073, 1.1735011, -0.69660974)
+
+[node name="Porta Banheiro 1" parent="." instance=ExtResource("14_70uel")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.128881, 1.1821172, -7.3654003)
+
+[node name="Porta Banheiro 2" parent="." instance=ExtResource("14_70uel")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.816575, 1.1647942, -7.415002)
+
+[node name="Porta" parent="." instance=ExtResource("14_70uel")]
+transform = Transform3D(-3.0379415e-08, 0, -0.695, 0, 0.695, 0, 0.695, 0, -3.0379415e-08, -12.584896, -1.3436103, 20.586212)
+
+[node name="Porta2" parent="." instance=ExtResource("14_70uel")]
+transform = Transform3D(-3.037941e-08, 0, 0.69499993, 0, 0.69499993, 0, -0.69499993, 0, -3.037941e-08, -15.423797, -1.3445168, 20.654854)
+open_direction = -1
