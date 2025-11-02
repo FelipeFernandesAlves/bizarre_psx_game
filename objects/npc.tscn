@@ -33,17 +33,15 @@ radius = 0.189786
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_0dpvs")
-npc_id = null
-npc_name = "Carlão"
-quest = null
+npc_id = "npc4"
+npc_name = "???"
+quest = 3
 dialogue_resource = SubResource("Resource_u3smf")
 dialogue_ui = NodePath("DialogueUI")
-can_interact = null
-item_name = null
-item_dialogue_id = null
+item_name = "wallet"
+item_dialogue_id = "wallet"
 
 [node name="coll_outline" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("CapsuleMesh_6reps")
 skeleton = NodePath("../coll")
 

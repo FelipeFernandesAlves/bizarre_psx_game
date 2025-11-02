@@ -96,7 +96,10 @@
 		}
 	},
 	
-	"npc_04": {
+	"npc4": {
+		"ramdom": [
+			[["Homem Assustado", "Puta merda..."]]
+		],
 		"dialogues": {
 			"text": [
 				["Homem Assustado", "Meu Deus, eu vi.."],

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://vcaxvh4lrrga" path="res://objects/wallet.tscn" id="3_0d6la"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w8un3"]
+energy_multiplier = 9.37
 
 [sub_resource type="Sky" id="Sky_0d6la"]
 sky_material = SubResource("ProceduralSkyMaterial_w8un3")
@@ -50,7 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3783245, 1, -0.3074832)
 npc_id = "npc4"
 npc_name = "???"
 quest = 3
-can_interact = true
 item_name = "wallet"
 item_dialogue_id = "wallet"
 

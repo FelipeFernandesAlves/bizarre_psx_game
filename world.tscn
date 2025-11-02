@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
 [ext_resource type="Script" uid="uid://bgfqe788rpbmc" path="res://world.gd" id="1_gbfbk"]
+[ext_resource type="AudioStream" uid="uid://cw83otiw1gno3" path="res://sounds/tension-stinger.mp3" id="2_2o6r5"]
 [ext_resource type="AudioStream" uid="uid://ddaagl0v2elef" path="res://sounds/motorcycle.wav" id="2_ioo17"]
 [ext_resource type="AudioStream" uid="uid://bh88qlso7ydh2" path="res://sounds/car-break.mp3" id="3_ioo17"]
 [ext_resource type="PackedScene" uid="uid://b5ok4uv7svrlx" path="res://objects/npc.tscn" id="3_nd55t"]
@@ -101,8 +102,19 @@ fog_aerial_perspective = 0.17
 vertices = PackedVector3Array(-16.3736, 0.4182353, -0.033999443, -16.6236, 0.4182353, 0.46600056, -15.6236, 0.4182353, 0.71600056, -15.6236, 0.4182353, -0.28399944, -12.3736, 0.4182353, 0.71600056, -12.3736, 0.4182353, -0.28399944, -13.1236, 0.4182353, -6.7839994, -14.3736, 0.4182353, -6.5339994, -11.6236, 0.4182353, 0.46600056, -11.6236, 0.4182353, -0.033999443, -14.6236, 0.4182353, -11.533999, -17.8736, 0.4182353, -11.533999, -17.1236, 0.4182353, -9.283999, -15.6236, 0.4182353, -8.033999, -14.8736, -1.8317647, 19.966, -14.8736, -1.8317647, 20.716, -13.3736, -1.8317647, 20.716, -13.3736, -1.8317647, 19.966, -12.3736, 0.4182353, -8.033999, -13.1236, 0.4182353, -11.533999, -10.8736, 0.4182353, -8.283999, -10.8736, 0.4182353, -9.033999, -16.8736, 0.4182353, -8.283999, -15.6236, -1.8317647, 19.716, -12.3736, -1.8317647, 19.716, -15.6236, 0.4182353, 10.946771, -15.6236, -1.0817647, 16.792923, -15.6236, -1.8317647, 18.254463, -12.3736, -1.8317647, 18.254463, -12.3736, -1.0817647, 16.792923, -12.3736, 0.4182353, 10.946771, -17.8736, 0.4182353, -9.283999, -9.8736, 0.4182353, -9.283999, -9.8736, 0.4182353, -11.533999, -10.8736, 0.4182353, -0.28399944, -5.8736, 0.4182353, 0.96600056, -8.3736, 0.4182353, -9.533999, -8.3736, 0.4182353, -6.7839994, 11.8764, 0.9182353, -9.533999, 7.537113, 0.4182353, -9.533999, 9.340687, 0.4182353, -8.033999, -10.8736, 0.4182353, -6.5339994, -5.8736, 0.4182353, 12.216001, 11.8764, 0.4182353, 19.716, 11.8764, 0.4182353, -5.146499, -10.8736, 0.4182353, 12.466001, -10.8736, 0.4182353, 19.716, -17.1236, 0.4182353, -0.28399944, -21.8736, 0.4182353, 0.46600056, -17.1236, 0.4182353, -6.5339994, -21.8736, 0.4182353, -6.5339994, -8.6236, 0.9182353, 10.966001, -9.3736, 0.9182353, 11.466001, -6.8736, 0.9182353, 11.466001, -6.8736, 0.9182353, 1.7160006, -9.6236, 0.9182353, 1.7160006, -8.6236, 0.9182353, 2.2160006, -8.8736, 0.9182353, 9.466001, -6.8736, 0.9182353, 8.216001, -8.6236, 0.9182353, 7.9660006, -10.8736, 0.9182353, 3.9660006, -10.8736, 0.9182353, 9.216001, -9.3736, 0.9182353, 8.966001, -8.6236, 0.9182353, 5.2160006, -9.3736, 0.9182353, 4.2160006, -8.8736, 0.9182353, 3.7160006, -6.8736, 0.9182353, 4.9660006, -15.1236, -1.8317647, 21.466, -16.1236, -1.8317647, 27.716, -13.1236, -1.8317647, 21.466, 12.3764, -1.8317647, 27.716, 12.3764, -1.8317647, 21.466, -16.1236, -1.8317647, 21.466)
 polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 7), PackedInt32Array(5, 7, 6), PackedInt32Array(8, 4, 9), PackedInt32Array(9, 4, 5), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 10), PackedInt32Array(17, 16, 14), PackedInt32Array(14, 16, 15), PackedInt32Array(19, 18, 6), PackedInt32Array(6, 18, 5), PackedInt32Array(21, 20, 18), PackedInt32Array(13, 22, 12), PackedInt32Array(23, 27, 14), PackedInt32Array(14, 27, 17), PackedInt32Array(17, 27, 24), PackedInt32Array(24, 27, 28), PackedInt32Array(28, 27, 26), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 25), PackedInt32Array(29, 25, 30), PackedInt32Array(30, 25, 2), PackedInt32Array(30, 2, 4), PackedInt32Array(12, 31, 11), PackedInt32Array(33, 32, 21), PackedInt32Array(10, 7, 13), PackedInt32Array(13, 7, 3), PackedInt32Array(18, 19, 21), PackedInt32Array(21, 19, 33), PackedInt32Array(9, 34, 8), PackedInt32Array(8, 34, 35), PackedInt32Array(38, 40, 39), PackedInt32Array(39, 40, 36), PackedInt32Array(36, 40, 37), PackedInt32Array(37, 40, 35), PackedInt32Array(41, 37, 34), PackedInt32Array(34, 37, 35), PackedInt32Array(38, 44, 40), PackedInt32Array(40, 44, 35), PackedInt32Array(35, 44, 42), PackedInt32Array(42, 44, 43), PackedInt32Array(45, 42, 46), PackedInt32Array(46, 42, 43), PackedInt32Array(0, 1, 47), PackedInt32Array(47, 1, 48), PackedInt32Array(49, 47, 50), PackedInt32Array(50, 47, 48), PackedInt32Array(53, 52, 51), PackedInt32Array(54, 56, 55), PackedInt32Array(59, 58, 57), PackedInt32Array(57, 58, 51), PackedInt32Array(51, 58, 53), PackedInt32Array(64, 63, 60), PackedInt32Array(60, 63, 59), PackedInt32Array(60, 59, 62), PackedInt32Array(60, 62, 61), PackedInt32Array(63, 65, 66), PackedInt32Array(66, 65, 56), PackedInt32Array(66, 56, 54), PackedInt32Array(59, 57, 62), PackedInt32Array(64, 65, 63), PackedInt32Array(16, 69, 15), PackedInt32Array(15, 69, 67), PackedInt32Array(67, 69, 68), PackedInt32Array(71, 70, 69), PackedInt32Array(69, 70, 68), PackedInt32Array(68, 72, 67)]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k3n1d"]
+size = Vector3(0.70751953, 2.5622559, 1.913147)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_gbfbk")
+
+[node name="Tension" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2o6r5")
+volume_db = -20.0
+
+[node name="Chase" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
 
 [node name="CutsceneHandler" type="AnimationPlayer" parent="."]
 libraries = {
@@ -119,59 +131,61 @@ light_volumetric_fog_energy = 4.702
 light_angular_distance = 5.21
 
 [node name="player" parent="." instance=ExtResource("1_att4b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.56832, -1.3289495, 25.080757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.56832, 2.5864215, 25.080757)
 
 [node name="pickables" type="Node3D" parent="."]
 
 [node name="Broom" parent="pickables" instance=ExtResource("8_gbfbk")]
-transform = Transform3D(1, 0, 0, 0, 0.9845032, 0.17536671, 0, -0.17536671, 0.9845032, -17.002363, 1.0069427, -2.3125112)
+transform = Transform3D(0.98519623, 0.17143047, 0, -0.17143047, 0.98519623, 0, 0, 0, 1, -14.501991, 4.3110304, -2.263264)
 
 [node name="Trash" type="Node3D" parent="pickables"]
 
 [node name="Trash" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.460966, -1.8624164, 22.53355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.460966, 1.4474952, 22.53355)
 
 [node name="Trash2" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7780967, -2.2644272, 23.368)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7780967, 1.5593503, 23.368)
 
 [node name="Trash3" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.760269, -2.2644272, 23.817652)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.330947, 1.4632773, 24.600561)
 
 [node name="Trash4" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2318, -2.264427, 24.33339)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2318, 1.4206235, 24.33339)
 
 [node name="Trash5" parent="pickables/Trash" instance=ExtResource("5_036b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0856743, -2.264427, 22.94106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0856743, 1.6548367, 22.94106)
 
 [node name="interactables" type="Node3D" parent="."]
 
 [node name="TrashCan" parent="interactables" instance=ExtResource("6_dwbse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.070517, -2.1630337, 21.635715)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.070517, 1.4120092, 21.635715)
 
 [node name="Wallet" parent="interactables" instance=ExtResource("9_wse8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.082699, 4.076399, -10.325056)
 
 [node name="npcs" type="Node3D" parent="."]
 
 [node name="tutorial_npc" parent="npcs" instance=ExtResource("3_nd55t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.58218, -1.4028245, 22.476143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.58218, 2.551991, 22.476143)
 collision_layer = 1
 collision_mask = 1
 npc_id = "tutorial"
 npc_name = "Caio"
+quest = 0
 can_interact = false
+item_name = ""
+item_dialogue_id = ""
 
 [node name="npc01" parent="npcs" instance=ExtResource("3_nd55t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3783245, 0.86926126, 7.0530043)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3783245, 4.4819717, 5.265087)
 npc_id = "npc1"
 npc_name = "Calvin"
 quest = 2
-
-[node name="npc??" parent="npcs" instance=ExtResource("3_nd55t")]
-npc_id = "default"
-quest = 0
-can_interact = true
 item_name = ""
 item_dialogue_id = ""
+
+[node name="npc??" parent="npcs" instance=ExtResource("3_nd55t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.947882, 4.6083565, 0.7722926)
 
 [node name="motorcycle_sound" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52030516, -1.6971968, 22.557419)
@@ -181,7 +195,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52030516, -1.6971968, 22.55
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="motorcycle_sound"]
 
 [node name="npc_dest" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.973197, 0.6400074, -9.73647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.184201, 4.5168705, -9.250448)
 
 [node name="EnemySceneController" type="Node" parent="."]
 script = ExtResource("10_ic0uy")
@@ -199,10 +213,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.826924, 2.1065857, -9.8594
 volume_db = 10.98
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0861273, 3.6083934, -0.21293354)
 navigation_mesh = SubResource("NavigationMesh_ic0uy")
 
 [node name="Map" parent="NavigationRegion3D" instance=ExtResource("7_pkg7o")]
 
+[node name="NpcDissapearArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.526, 4.522, 0.065526366)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NpcDissapearArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022216797, 0.7811279, -0.06484985)
+shape = SubResource("BoxShape3D_k3n1d")
+
+[connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]
 [node name="placa luminosa" parent="." instance=ExtResource("13_2o6r5")]
 transform = Transform3D(2.221105, 0, 0, 0, 2.221105, 0, 0, 0, 1, 6.9923463, 1.2809225, -10.208717)
 

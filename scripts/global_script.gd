@@ -11,9 +11,6 @@ enum quests {
 	TRASH,
 	NPC1,
 	NPC2,
-	NPC3,
-	NPC4,
-	PERSON,
 	CLEAN
 }
 
