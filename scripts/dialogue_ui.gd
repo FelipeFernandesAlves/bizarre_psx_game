@@ -124,6 +124,7 @@ func pass_dialog():
 			var next = dialogues.get_dialog(dialogue_options[options.get_child(selected_option).text])
 			dialogue_options.clear()
 			add_dialogue(next["dialogues"])
+			
 		else:
 			dialogue_end.emit()
 	

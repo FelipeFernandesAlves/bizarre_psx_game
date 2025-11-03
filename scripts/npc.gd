@@ -16,6 +16,7 @@ extends CharacterBody3D
 
 @onready var head: CollisionShape3D = $head
 @onready var coll_outline: MeshInstance3D = $coll_outline
+@onready var npc_model:Node3D = $model.get_node(NodePath(name))
 
 @onready var door_exit: AudioStreamPlayer3D = $door_exit
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
@@ -23,14 +24,15 @@ var current_on_target_reached = null
 var SPEED = 6.0
 var focused: bool:
 	set(value):
-		coll_outline.visible = value
+		#coll_outline.visible = value
 		focused = value
 
 signal item_received()
 
 func _ready() -> void:
 	dialogue_resource.load_from_json("res://dialogue/dialogues.json")
-	coll_outline.visible = false
+	#coll_outline.visible = false
+	npc_model.visible = true
 
 func _physics_process(delta: float) -> void:                                     
 	if not nav_agent.is_navigation_finished():
@@ -38,6 +40,8 @@ func _physics_process(delta: float) -> void:
 		var next_location = nav_agent.get_next_path_position()
 		var direction = next_location - current_location
 		var new_velocity = direction.normalized() * SPEED
+		#if npc_model.state != "walking":
+		npc_model.state = "walking"
 		
 		if direction.length() > 0.1:
 			var target_rotation = atan2(direction.x, direction.z)
@@ -48,7 +52,11 @@ func _physics_process(delta: float) -> void:
 		
 func interact():
 	var npc_dialogues := dialogue_resource.get_dialog(npc_id)
-	if npc_dialogues.is_empty(): return
+	if npc_dialogues.is_empty(): 
+		npc_model.state = "idle"
+		return
+	else:
+		npc_model.state = "talking"
 	
 	if (Global.current_quest != quest):
 		var t = npc_dialogues.get("ramdom", [])
@@ -61,6 +69,7 @@ func interact():
 		dialogue_ui.add_dialogue(npc_dialogues["dialogues"])
 	
 func go_to(target_location, _on_target_reached):
+	npc_model.state = "walking"
 	if Global.pause:
 		return
 	
@@ -68,6 +77,7 @@ func go_to(target_location, _on_target_reached):
 	nav_agent.target_position = target_location
 
 func _on_navigation_agent_3d_target_reached() -> void:
+	npc_model.state = "idle"
 	if current_on_target_reached == null:
 		return
 		
