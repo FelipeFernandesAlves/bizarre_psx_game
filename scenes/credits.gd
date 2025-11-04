@@ -17,6 +17,7 @@ var _t: float = 0.0
 var _last_beat_count: int = -1
 
 func _process(delta: float) -> void:
+	position = get_viewport().get_visible_rect().size / 2
 	_t += delta
 	var frequency = bpm / 60.0
 	var ang = TAU * frequency * (_t + phase_offset)
