@@ -1,4 +1,4 @@
-extends Sprite2D
+extends TextureRect
 
 @export var bpm: float = 124.0
 @export var min_scale: Vector2 = Vector2(0.95, 0.95)
@@ -15,6 +15,9 @@ signal beat
 
 var _t: float = 0.0
 var _last_beat_count: int = -1
+
+func _ready() -> void:
+	Transition.color_rect.modulate.a = 0.0
 
 func _process(delta: float) -> void:
 	_t += delta

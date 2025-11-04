@@ -1,28 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://ueqnrvqa4p5w"]
+[gd_scene load_steps=4 format=3 uid="uid://ueqnrvqa4p5w"]
 
 [ext_resource type="Texture2D" uid="uid://dbv0bpklwu7f0" path="res://scenes/Group 1(1).png" id="1_hi4w3"]
 [ext_resource type="Script" uid="uid://sao8m1whvxf5" path="res://scenes/credits.gd" id="2_spvsy"]
-[ext_resource type="AudioStream" uid="uid://de5mpuv0oq5i0" path="res://sounds/musica_balada.mp3" id="3_gw1d4"]
+[ext_resource type="AudioStream" uid="uid://574saecflqw6" path="res://sounds/musica_creditos.wav" id="3_gw1d4"]
 
-[sub_resource type="Gradient" id="Gradient_spvsy"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gw1d4"]
-gradient = SubResource("Gradient_spvsy")
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="Credits" type="Node2D"]
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(607.0001, 320)
-scale = Vector2(33.393818, 14.57383)
-texture = SubResource("GradientTexture2D_gw1d4")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(559, 296)
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.5
+offset_top = -189.0
+offset_right = 326.5
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.98133427, 0.98133427)
 texture = ExtResource("1_hi4w3")
 script = ExtResource("2_spvsy")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gw1d4")
 autoplay = true

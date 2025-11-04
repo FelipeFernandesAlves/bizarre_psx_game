@@ -21,31 +21,29 @@ func _ready() -> void:
 	Jumpscare.connect(_on_jumpscared_triggered)
 	
 func begin():
-	enemy.visible = true
 	knocking.stream = KNOCKING
 	knocking.play()
 	
 	should_start_count_down = true
 
-
 func enter_scene():
+	enemy.visible = true
 	sound_player.stream = CHASING_SOUND
 	sound_player.play()
 	knocking.stop()
-	
-	var tween = create_tween()
-
-	tween.tween_property(
-		enemy,
-		"global_position",
-		initial_enemy_position.global_position,
-		1
-	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-
-	await tween.finished
-
 	is_chasing = true
-
+	#
+	#var tween := create_tween()
+#
+	#tween.tween_property(
+		#enemy,
+		#"global_position",
+		#initial_enemy_position.global_position,
+		#1
+	#).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+#
+	#tween.finished.connect(func():
+		#)
 
 func _process(delta: float) -> void:
 	if should_start_count_down:
@@ -59,4 +57,8 @@ func _process(delta: float) -> void:
 		get_tree().call_group("enemy", "update_target_location", player.global_position)
 
 func _on_jumpscared_triggered():
-	get_tree().change_scene_to_file("res://scenes/Jumpscare.tscn")
+	Global.pause = true
+	sound_player.stop()
+	player.dead = true
+	is_chasing = false
+	add_child(preload("res://scenes/Jumpscare.tscn").instantiate())

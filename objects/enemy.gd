@@ -4,9 +4,14 @@ extends CharacterBody3D
 
 @onready var controller = get_parent()
 
-var SPEED = 7
+var has_reached := false
+var SPEED = 9
+var can_chase := true
 
 func _physics_process(delta: float) -> void:
+	if (!can_chase):
+		return
+	
 	var current_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
 	var direction = (next_location - current_location)
@@ -24,5 +29,7 @@ func update_target_location(target_location):
 	nav_agent.get_next_path_position()
 
 func _on_navigation_agent_3d_target_reached() -> void:
-	if controller:
+	if controller && !has_reached:
 		controller.emit_signal("Jumpscare")
+		has_reached = true
+		can_chase = false

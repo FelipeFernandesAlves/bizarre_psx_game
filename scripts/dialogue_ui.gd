@@ -8,7 +8,7 @@ class_name DialogueUI extends Control
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 const DIALOGUE_OPTION = preload("uid://behc8v4xmek4q")
-const SOUND_DELAY := 1
+const SOUND_DELAY := 0.2
 
 var sound_count: float = SOUND_DELAY
 
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		sound_count = 0
 		_handle_option_choose()
 	else:
-		sound_count += 1/dialog_spd
+		sound_count += delta
 		if (sound_count > SOUND_DELAY):
 			audio_stream_player.play()
 			sound_count = 0

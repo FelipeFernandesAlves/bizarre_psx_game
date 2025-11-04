@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbal7dy0fqtxa"]
+[gd_scene load_steps=19 format=3 uid="uid://bbal7dy0fqtxa"]
 
 [ext_resource type="Script" uid="uid://btgs5uclw83oq" path="res://scripts/player.gd" id="1_xf4s3"]
 [ext_resource type="Shader" uid="uid://ddvibi2f7hyv8" path="res://shader/psx_camera_shader.gdshader" id="2_32gk2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://xmtvdn88fxpc" path="res://objects/scripts/quest_handler.gd" id="6_3rfka"]
 [ext_resource type="FontFile" uid="uid://umkeowwlehjc" path="res://fonts/TooMuchInk.ttf" id="7_4vq5b"]
 [ext_resource type="FontFile" uid="uid://curoxx0q6i3gg" path="res://fonts/XTypewriter-Bold.ttf" id="7_i8sra"]
+[ext_resource type="AudioStream" uid="uid://nqky28ksqcsx" path="res://sounds/paper.mp3" id="8_3nfmf"]
 [ext_resource type="PackedScene" uid="uid://dm2uidna0mp50" path="res://dialogue/dialogue_ui.tscn" id="8_4vq5b"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hq2fm"]
@@ -22,12 +23,12 @@ shader = ExtResource("2_32gk2")
 shader_parameter/enable_fog = true
 shader_parameter/fog_color = Color(0, 0, 0, 1)
 shader_parameter/noise_color = Color(0, 0, 0, 1)
-shader_parameter/fog_distance = 100.0
+shader_parameter/fog_distance = 40.0000018525
 shader_parameter/fog_fade_range = 50.0
 shader_parameter/enable_noise = true
 shader_parameter/noise_time_fac = 4.0
 shader_parameter/enable_color_limitation = true
-shader_parameter/color_levels = 32
+shader_parameter/color_levels = 28
 shader_parameter/enable_dithering = true
 shader_parameter/dither_strength = 0.3
 
@@ -54,6 +55,7 @@ font = ExtResource("7_i8sra")
 font_size = 24
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 collision_mask = 3
 script = ExtResource("1_xf4s3")
 
@@ -186,7 +188,7 @@ script = ExtResource("6_3rfka")
 metadata/_custom_type_script = "uid://xmtvdn88fxpc"
 
 [node name="MarginContainer" type="MarginContainer" parent="camera_pivot/HUD/quests"]
-custom_minimum_size = Vector2(200, 150)
+custom_minimum_size = Vector2(250, 200)
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 150.0
@@ -202,8 +204,8 @@ theme_override_fonts/bold_font = ExtResource("7_i8sra")
 theme_override_fonts/bold_italics_font = ExtResource("7_i8sra")
 theme_override_fonts/italics_font = ExtResource("7_i8sra")
 theme_override_fonts/mono_font = ExtResource("7_i8sra")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 26
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 28
 theme_override_font_sizes/bold_italics_font_size = 18
 theme_override_font_sizes/italics_font_size = 18
 theme_override_font_sizes/mono_font_size = 18
@@ -214,6 +216,9 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="camera_pivot/HUD/quests"]
+stream = ExtResource("8_3nfmf")
+
 [node name="ContextComponent" type="Node" parent="camera_pivot/HUD" node_paths=PackedStringArray("context")]
 script = ExtResource("3_btdrp")
 context = NodePath("../interact_text/VBoxContainer/HBoxContainer/CenterContainer/Label")
@@ -221,3 +226,10 @@ default_icon = ExtResource("4_n1vfi")
 
 [node name="DialogueUI" parent="camera_pivot/HUD" instance=ExtResource("8_4vq5b")]
 layout_mode = 1
+
+[node name="step_sound" type="AudioStreamPlayer3D" parent="."]
+volume_db = -30.0
+
+[node name="step_timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true

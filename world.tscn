@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cpdwlpungncrj"]
+[gd_scene load_steps=32 format=3 uid="uid://cpdwlpungncrj"]
 
 [ext_resource type="PackedScene" uid="uid://bbal7dy0fqtxa" path="res://objects/player.tscn" id="1_att4b"]
 [ext_resource type="Script" uid="uid://bgfqe788rpbmc" path="res://world.gd" id="1_gbfbk"]
@@ -16,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://hdfw08kkoyun" path="res://models/map/placa luminosa.glb" id="13_2o6r5"]
 [ext_resource type="AudioStream" uid="uid://de5mpuv0oq5i0" path="res://sounds/musica_balada.mp3" id="14_2u3nc"]
 [ext_resource type="PackedScene" uid="uid://wywiruyt506p" path="res://objects/porta.tscn" id="14_70uel"]
+[ext_resource type="Script" uid="uid://3i37ojq8mi0o" path="res://door_coll.gd" id="17_ikiii"]
+[ext_resource type="AudioStream" uid="uid://nwu6udn4qmkc" path="res://sounds/porta_trancada.wav" id="18_26xuy"]
+[ext_resource type="Script" uid="uid://dn2eaprkg88q4" path="res://scripts/interaction_component.gd" id="18_cbp6q"]
+[ext_resource type="AudioStream" uid="uid://d1htjxvtuefm5" path="res://sounds/ambience.mp3" id="20_26xuy"]
 
 [sub_resource type="Animation" id="Animation_gbfbk"]
 resource_name = "start"
@@ -119,6 +123,9 @@ size = Vector3(1, 2.4667969, 7.007538)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2u3nc"]
 size = Vector3(1, 2.467, 7.008)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_udxuc"]
+size = Vector3(2.8416748, 2.2723389, 0.5373535)
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_gbfbk")
 
@@ -191,7 +198,7 @@ item_name = ""
 item_dialogue_id = ""
 
 [node name="npc01" parent="npcs" instance=ExtResource("3_nd55t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3783245, 4.4819717, 5.265087)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.3783245, 4.637324, 5.265087)
 npc_id = "npc1"
 npc_name = "Calvin"
 quest = 2
@@ -199,7 +206,7 @@ item_name = ""
 item_dialogue_id = ""
 
 [node name="npc??" parent="npcs" instance=ExtResource("3_nd55t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.947882, 4.6083565, 0.7722926)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13.947882, 4.6083565, 0.7722926)
 
 [node name="motorcycle_sound" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52030516, -1.6971968, 22.557419)
@@ -215,13 +222,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.184201, 4.5168705, -9.2504
 script = ExtResource("10_ic0uy")
 
 [node name="Enemy" parent="EnemySceneController" groups=["enemy"] instance=ExtResource("11_k3n1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.67888, 5.4809995, -11.376628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.458159, 5.68067, -10.370093)
+visible = false
 
 [node name="SoundPlayer" type="AudioStreamPlayer3D" parent="EnemySceneController/Enemy"]
-volume_db = -10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="EnemySceneController/Enemy"]
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 1.5
+light_size = 0.479
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 197.558
+omni_attenuation = 2.0
 
 [node name="InitialEnemyPosition" type="Node3D" parent="EnemySceneController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.646468, 5.3809133, -9.401922)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.257374, 4.9253793, -6.9308815)
 
 [node name="Knocking" type="AudioStreamPlayer3D" parent="EnemySceneController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.573786, 5.6397624, -9.859498)
@@ -281,5 +298,35 @@ open_direction = -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0180783, 5.6540174, 6.490928)
 stream = ExtResource("14_2u3nc")
 volume_db = -25.0
+
+[node name="DoorColl" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.883865, 2, 20.377277)
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("17_ikiii")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorColl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012634277, 0.63616943, -0.0826416)
+shape = SubResource("BoxShape3D_udxuc")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DoorColl"]
+stream = ExtResource("18_26xuy")
+volume_db = -10.0
+
+[node name="InteractionComponent" type="Node" parent="DoorColl"]
+script = ExtResource("18_cbp6q")
+content = "Porta"
+metadata/_custom_type_script = "uid://dn2eaprkg88q4"
+
+[node name="Ambience" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.740955, 0, 0)
+
+[node name="Ambience" type="AudioStreamPlayer3D" parent="Ambience"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.493273, 0, 32.925358)
+stream = ExtResource("20_26xuy")
+volume_db = -25.0
+unit_size = 200.0
+autoplay = true
+bus = &"Ambience"
 
 [connection signal="body_entered" from="NpcDissapearArea" to="." method="_on_npc_dissapear_area_body_entered"]

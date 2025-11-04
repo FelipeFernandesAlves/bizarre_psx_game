@@ -1,19 +1,45 @@
 [gd_scene load_steps=4 format=3 uid="uid://bn0mmgoa6kkae"]
 
-[ext_resource type="Texture2D" uid="uid://ccug52sbmhxam" path="res://jumpscare.jpg" id="1_5ecbj"]
-[ext_resource type="Script" path="res://scenes/jumpscare.gd" id="1_7i1ut"]
-[ext_resource type="AudioStream" uid="uid://dihqfmdhq828f" path="res://sounds/jumpscare.mp3" id="2_7i1ut"]
+[ext_resource type="Script" uid="uid://dprbsh01mt4mb" path="res://scenes/jumpscare.gd" id="1_7i1ut"]
+[ext_resource type="AudioStream" uid="uid://bt5hhvn4t5lin" path="res://sounds/jumpscare.wav" id="2_7i1ut"]
+[ext_resource type="Texture2D" uid="uid://cylduprpc5vcr" path="res://BloodOverlay.png" id="3_7i1ut"]
 
-[node name="Jumpscare" type="Node2D"]
+[node name="Jumpscare" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_7i1ut")
 
-[node name="Jumpscare" type="Sprite2D" parent="."]
-position = Vector2(572, 368)
-scale = Vector2(0.9695432, 0.96954316)
-texture = ExtResource("1_5ecbj")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(575, 345)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_7i1ut")
-volume_db = -20.0
 autoplay = true
+
+[node name="Jumpscare" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Jumpscare"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5647059, 0, 0.003921569, 0.27058825)
+
+[node name="TextureRect" type="TextureRect" parent="Jumpscare"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7i1ut")
+expand_mode = 2

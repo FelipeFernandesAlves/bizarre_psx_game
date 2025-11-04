@@ -14,4 +14,12 @@ enum quests {
 	CLEAN
 }
 
-var current_quest: quests = quests.DEFAULT
+var current_quest: quests = quests.NPC2
+
+func _unhandled_input(event: InputEvent) -> void:
+	if (event.is_action_pressed("fullscreen")):
+		if (get_window().mode == Window.MODE_WINDOWED):
+			get_window().mode = Window.MODE_FULLSCREEN
+		else:
+			get_window().mode = Window.MODE_WINDOWED
+			

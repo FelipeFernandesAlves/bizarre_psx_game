@@ -23,6 +23,12 @@ const SENSIBILITY = 0.003
 @onready var sweep_box: VBoxContainer = $camera_pivot/HUD/interact_text/VBoxContainer/VBoxContainer
 @onready var dialogue_ui: DialogueUI = $camera_pivot/HUD/DialogueUI
 
+@onready var step_sound: AudioStreamPlayer3D = $step_sound
+@onready var step_timer: Timer = $step_timer
+const FOOTSTEPS = [preload("uid://bhe3i011ijam2"), preload("uid://djsbpegdlvmc6")]
+var can_step : bool = true
+var curr_footstep = 0
+
 var holdable_objects = {}
 var holding_obj_parent: Node3D
 var holding_obj: Pickable
@@ -58,6 +64,7 @@ var stamina_cooldown = 2
 var curr_stamina_cooldown = 0
 
 var focus : CollisionShape3D
+var dead := false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -68,6 +75,10 @@ func _ready() -> void:
 	holdable_parent.get_children(true).map(func(obj):
 		holdable_objects[obj.name.to_lower()] = obj
 	)
+	
+	step_timer.timeout.connect(func():
+		can_step = true
+		)
 	
 	holding_obj = null
 	init_obj_pos = Vector3.ZERO
@@ -84,6 +95,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotate_x(-event.relative.y * SENSIBILITY)
 		camera.rotation.x = clamp(camera.rotation.x, MIN_CAMX, MAX_CAMX)
 	
+	if (event.is_action_pressed("debug")):
+		dead = !dead
+	
 	if (event.is_action_pressed("drop")):
 		drop_obj()
 
@@ -95,6 +109,11 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
+	
+	if (dead):
+		rotation.z = lerp_angle(rotation.z, 90, 0.2)
+	else:
+		rotation.z = lerp_angle(rotation.z, 0, 0.2)
 	
 	if Input.is_action_pressed("run") && stamina > min_run_stamina:
 		runing = true
@@ -136,7 +155,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		if holding_obj: holding_obj.transform.origin = init_obj_pos - (_head_bob(bob_time)*velocity.length()/2)/8
+		step_timer.paused = false
 	else:
+		step_timer.paused = true
 		velocity.x = lerp(velocity.x, 0.0, delta * 8)
 		velocity.z = lerp(velocity.z, 0.0, delta * 8)
 		if holding_obj: holding_obj.transform.origin = lerp(holding_obj.transform.origin, init_obj_pos, delta * 5)
@@ -176,6 +197,17 @@ func _head_bob(time: float) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ/2) * BOB_AMP
 	
+	if (sin(time * BOB_FREQ) <= -0.9 && can_step):
+		step_timer.start()
+		
+		step_sound.stream = FOOTSTEPS[curr_footstep]
+		step_sound.play()
+		step_sound.pitch_scale = randf_range(0.6, 1.0)
+		
+		curr_footstep = (curr_footstep+1) % (FOOTSTEPS.size()-1)
+		
+		can_step = false
+
 	return pos
 
 func hold_obj(_object_name: String, obj_node: Node3D = null) -> void:
@@ -194,7 +226,9 @@ func hold_obj(_object_name: String, obj_node: Node3D = null) -> void:
 			holding_obj.is_held = true
 			
 			holding_obj.picked.emit()
-			holding_obj.emit_signal("unfocused")
+			
+			if (holding_obj.has_signal("unfocused")):
+				holding_obj.emit_signal("unfocused")
 
 func drop_obj():
 	if (holding_obj == null):

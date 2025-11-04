@@ -4,21 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://dupx2ul10q18n" path="res://models/characters/ghost.tscn" id="2_7jlpp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_882u1"]
+radius = 0.23632813
+height = 1.3623047
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7jlpp"]
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_882u1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17822266, 0)
 shape = SubResource("CapsuleShape3D_882u1")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["enemy"]]
 
 [node name="ghost" parent="." instance=ExtResource("2_7jlpp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.076899, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.24933362, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false

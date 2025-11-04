@@ -42,6 +42,7 @@ func complete_quest(index: int = 0):
 	if (objectives.size() <= 0):
 		return
 	
+	$AudioStreamPlayer.play()
 	quest_completed.emit(objectives[index].to_lower())
 	objectives.remove_at(index)
 	progresses.remove_at(index)
